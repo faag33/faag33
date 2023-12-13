@@ -1,0 +1,39 @@
+erDiagram
+    Patient {
+        patientID : integer;
+        name : string;
+        age : integer;
+        medicalHistory : list;
+        diagnosis : string;
+        plannedSurgery : string;
+    }
+    Surgeon {
+        surgeonID : integer;
+        name : string;
+        specialty : string;
+        experience : integer;
+    }
+    Surgery {
+        surgeryID : integer;
+        type : string;
+        duration : float;
+        complications : list;
+        outcome : string;
+    }
+    VRSimulation {
+        simulationID : integer;
+        type : string;
+        duration : float;
+        difficultyLevel : integer;
+        performanceData : list;
+    }
+    PerformanceData {
+        metric : string;
+        value : float;
+        timestamp : datetime;
+    }
+    Patient ||--o{ Surgery }
+    Surgeon ||--o{ Surgery }
+    Surgery ||--{ VRSimulation }
+    VRSimulation ||--o{ PerformanceData }
+    PerformanceData ||--{ Surgery }
